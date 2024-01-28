@@ -26,3 +26,15 @@ test('builds a request with default parameters if no parameters are added', () =
 
   expect(testRequest).toEqual({ prompt: '', seed: -1 });
 });
+
+test.each([false, true])('buids a conditional request (useUserSeed: %s)', (useUserSeed) => {
+  const testSeed = 1234;
+  const request = new StableDiffusionRequestBuilder()
+    .setPrompt('test prompt');
+  
+  if (useUserSeed) {
+    request.setSeed(testSeed);
+  }
+
+  expect(request.seed).toBe(useUserSeed ? testSeed : -1);
+});
