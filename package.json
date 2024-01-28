@@ -12,6 +12,13 @@
   },
   "author": "ttse76",
   "license": "ISC",
+  "keywords": [
+    "stable diffusion",
+    "ai",
+    "ai art",
+    "stable diffusion ui",
+    "stable diffusion api"
+  ],
   "devDependencies": {
     "@types/jest": "^29.5.11",
     "jest": "^29.7.0"
