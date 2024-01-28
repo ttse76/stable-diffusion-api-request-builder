@@ -1,0 +1,14 @@
+{
+  "name": "stable-diffusion-api-request-builder",
+  "version": "0.0.1",
+  "description": "JavaScript based request builder for the Stable Diffusion API",
+  "main": "StableDiffusionRequestBuilder.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "ttse76",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
