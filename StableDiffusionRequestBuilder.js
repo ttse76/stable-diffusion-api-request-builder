@@ -253,18 +253,6 @@ class StableDiffusionRequestBuilder {
       this.alwayson_scripts = alwaysonScripts;
       return this;
   }
-
-  valueOf() {
-    let request = {};
-  
-    for (const key in this) {
-      if (this[key]) {
-        request
-      }
-    }
-
-    return request;
-  }
 }
 
 module.exports = StableDiffusionRequestBuilder;
