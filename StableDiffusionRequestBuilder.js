@@ -254,13 +254,72 @@ class StableDiffusionRequestBuilder {
     return this;
   }
 
-  valueOf() {
-    let result = {};
-    for (let key in this) {
-      result[key] = this[key];
+  /**
+   * Apply a template of parameters to the request
+   * @param {Object} template 
+   */
+  applyTemplate(template) {
+    const templateKeys = Object.keys(template).filter(key => requestParameterNames.includes(key));
+ 
+    for (let key of templateKeys) {
+      this[key] = template[key];
     }
-    return result;
+
+    return this;
   }
 }
+
+const requestParameterNames = [
+  'prompt',
+  'negative_prompt',
+  'styles',
+  'seed',
+  'subseed',
+  'subseed_strength',
+  'seed_resize_from_h',
+  'seed_resize_from_w',
+  'sampler_name',
+  'batch_size',
+  'n_iter',
+  'steps',
+  'cfg_scale',
+  'width',
+  'height',
+  'restore_faces',
+  'tiling',
+  'do_not_save_samples',
+  'do_not_save_grid',
+  'eta',
+  'denoising_strength',
+  's_min_uncond',
+  's_churn',
+  's_tmax',
+  's_tmin',
+  's_noise',
+  'override_settings',
+  'override_settings_restore_afterwards',
+  'refiner_checkpoint',
+  'refiner_switch_at',
+  'disable_extra_networks',
+  'comments',
+  'enable_hr',
+  'firstphase_width',
+  'firstphase_height',
+  'hr_scale',
+  'hr_upscaler',
+  'hr_second_pass_steps',
+  'hr_resize_x',
+  'hr_resize_y',
+  'hr_checkpoint_name',
+  'hr_sampler_name',
+  'hr_prompt',
+  'hr_negative_prompt',
+  'sampler_index',
+  'script_name',
+  'script_args',
+  'send_images',
+  'save_images',
+  'alwayson_scripts'
+];
 
 module.exports = StableDiffusionRequestBuilder;
