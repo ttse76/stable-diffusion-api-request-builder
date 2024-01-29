@@ -77,4 +77,25 @@ describe('applyTemplate', () => {
     expect(requestKeys.length).toBe(Object.keys(templateKeys).length - 1);
     expect(requestKeys).not.toContain('invalid_parameter');
   });
+
+  test('apply template and add onto request', () => {
+    const template = {
+      seed: 1234,
+      prompt: 'test prompt',
+      sampler_index: 'test sampler',
+      enable_hr: true
+    };
+    const steps = 25;
+    const templateKeys = Object.keys(template);
+
+    const request = new StableDiffusionRequestBuilder()
+      .applyTemplate(template)
+      .setSteps(steps);
+    
+    const requestKeys = Object.keys(request);
+    
+    expect(requestKeys.length).toBe(Object.keys(templateKeys).length + 1);
+    expect(requestKeys).toContain('steps');
+    expect(request['steps']).toBe(steps);
+  });
 });
