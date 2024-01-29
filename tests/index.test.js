@@ -58,4 +58,23 @@ describe('applyTemplate', () => {
     
     expect(request).toEqual(template);
   });
+
+  test('apply template not including invalid parameters', () => {
+    const template = {
+      seed: 1234,
+      prompt: 'test prompt',
+      sampler_index: 'test sampler',
+      enable_hr: true,
+      invalid_parameter: 'invalid'
+    };
+    const templateKeys = Object.keys(template);
+
+    const request = new StableDiffusionRequestBuilder()
+      .applyTemplate(template);
+    
+    const requestKeys = Object.keys(request);
+    
+    expect(requestKeys.length).toBe(Object.keys(templateKeys).length - 1);
+    expect(requestKeys).not.toContain('invalid_parameter');
+  });
 });
