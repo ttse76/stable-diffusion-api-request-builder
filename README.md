@@ -75,7 +75,6 @@ console.log(request);
 ```javascript
 {
   seed: 1234,
-  steps: 25,
   prompt: 'A red apple on a table',
   sampler_index: 'DPM++ 2M Karras',
   enable_hr: true
@@ -102,7 +101,6 @@ console.log(request);
 ```javascript
 {
   seed: 1234,
-  steps: 25,
   prompt: 'A red apple on a table',
   sampler_index: 'DPM++ 2M Karras',
   enable_hr: true
