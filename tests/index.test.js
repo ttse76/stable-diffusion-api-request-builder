@@ -10,6 +10,8 @@ test('builds a request with the given parameters', () => {
     cfg_scale: 7
   }
 
+  const numKeys = Object.keys(testRequestBase).length;
+
   const testRequest = new StableDiffusionRequestBuilder()
     .setPrompt(testRequestBase.prompt)
     .setNegativePrompt(testRequestBase.negative_prompt)
@@ -19,6 +21,7 @@ test('builds a request with the given parameters', () => {
     .setCfgScale(testRequestBase.cfg_scale);
 
   expect(testRequest).toEqual(testRequestBase);
+  expect(Object.keys(testRequest).length).toBe(numKeys);
 });
 
 test('builds a request with default parameters if no parameters are added', () => {
